@@ -1,0 +1,38 @@
+.scroll-float {
+  margin: 0;
+  overflow: visible;
+}
+
+.scroll-float--open {
+  overflow: visible;
+}
+
+.scroll-float-text {
+  display: inline-block;
+  font-weight: 900;
+  text-align: center;
+  line-height: 0.85;
+}
+
+.scroll-float-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.scroll-float-char {
+  display: inline-block;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+.scroll-float-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
