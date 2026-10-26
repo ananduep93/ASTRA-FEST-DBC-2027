@@ -17,7 +17,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
  */
 export async function saveRegistration(payload) {
   try {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("registrations")
       .insert([
         {
@@ -30,14 +30,13 @@ export async function saveRegistration(payload) {
           category: payload.category || null,
           created_at: new Date().toISOString(),
         },
-      ])
-      .select();
+      ]);
 
     if (error) {
       console.warn("[Supabase] Notice saving to registrations:", error.message);
       return { success: false, error };
     }
-    return { success: true, data };
+    return { success: true };
   } catch (err) {
     console.warn("[Supabase] Unexpected error saving registration:", err);
     return { success: false, error: err };
@@ -49,7 +48,7 @@ export async function saveRegistration(payload) {
  */
 export async function saveInquiry(payload) {
   try {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("inquiries")
       .insert([
         {
@@ -59,14 +58,13 @@ export async function saveInquiry(payload) {
           message: payload.message || null,
           created_at: new Date().toISOString(),
         },
-      ])
-      .select();
+      ]);
 
     if (error) {
       console.warn("[Supabase] Notice saving to inquiries:", error.message);
       return { success: false, error };
     }
-    return { success: true, data };
+    return { success: true };
   } catch (err) {
     console.warn("[Supabase] Unexpected error saving inquiry:", err);
     return { success: false, error: err };
