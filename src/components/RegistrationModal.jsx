@@ -10,12 +10,14 @@ import {
 import confetti from "canvas-confetti";
 import { siteConfig } from "../data/siteConfig";
 import { EASE_EDITORIAL } from "./motion/Reveal";
+import { saveRegistration } from "../lib/supabase";
 
 export function RegistrationModal({ isOpen, onClose, selectedProgram }) {
   const shouldReduceMotion = useReducedMotion();
   const [copied, setCopied] = useState(false);
   const [notifySuccess, setNotifySuccess] = useState(false);
   const [notifyEmail, setNotifyEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -52,16 +54,30 @@ export function RegistrationModal({ isOpen, onClose, selectedProgram }) {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleNotifySubmit = (e) => {
+  const handleNotifySubmit = async (e) => {
     e.preventDefault();
-    if (!notifyEmail) return;
-    setNotifySuccess(true);
-    confetti({
-      particleCount: 70,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ["#0055FF", "#FFFFFF", "#60A5FA"],
-    });
+    if (!notifyEmail || isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      await saveRegistration({
+        email: notifyEmail,
+        program_id: selectedProgram?.id || null,
+        program_name: selectedProgram?.name || "General Festival Interest",
+        category: selectedProgram?.category || "General",
+      });
+    } catch (err) {
+      console.warn("Registration submission fallback:", err);
+    } finally {
+      setIsSubmitting(false);
+      setNotifySuccess(true);
+      confetti({
+        particleCount: 70,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#0055FF", "#FFFFFF", "#60A5FA"],
+      });
+    }
   };
 
   return (
@@ -201,9 +217,10 @@ export function RegistrationModal({ isOpen, onClose, selectedProgram }) {
                   />
                   <button
                     type="submit"
-                    className="min-h-[44px] px-5 py-2.5 bg-white text-black hover:bg-[#0055FF] hover:text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer"
+                    disabled={isSubmitting}
+                    className="min-h-[44px] px-5 py-2.5 bg-white text-black hover:bg-[#0055FF] hover:text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Notify Me
+                    {isSubmitting ? "Connecting..." : "Notify Me"}
                   </button>
                 </div>
                 <span className="block text-[11px] text-[#71717A]">

@@ -11,6 +11,7 @@ import {
 import { SectionHeading } from "./SectionHeading";
 import { siteConfig } from "../data/siteConfig";
 import { Reveal } from "./motion/Reveal";
+import { saveInquiry } from "../lib/supabase";
 
 export function ContactSection() {
   const [copiedNumber, setCopiedNumber] = useState(false);
@@ -26,6 +27,14 @@ export function ContactSection() {
 
   const handleSendInquiry = (e) => {
     e.preventDefault();
+    // Record to Supabase asynchronously without blocking WhatsApp redirection
+    saveInquiry({
+      name: inquiryName,
+      college: inquiryCollege,
+      message: inquiryText,
+      phone: null,
+    }).catch((err) => console.warn("[Supabase] Inquiry notice:", err));
+
     const message = encodeURIComponent(
       `Hello ASTRA 2K27 Committee,\n\nName: ${inquiryName || "Collegiate Representative"}\nCollege: ${inquiryCollege || "College Contingent"}\nInquiry: ${inquiryText || "Regarding event registration and schedule"}`
     );
