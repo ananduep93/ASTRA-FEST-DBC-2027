@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { EventsPortalSection } from "./components/EventsPortalSection";
 import { ProgramsSection } from "./components/ProgramsSection";
 import { GallerySection } from "./components/GallerySection";
 import { ContactSection } from "./components/ContactSection";
@@ -65,19 +66,40 @@ export default function App() {
         )}
 
         {/* View-Based Content Rendering */}
-        {activeView === "home" && <Hero onOpenRegister={() => handleOpenRegister()} />}
-        {activeView === "programs" && <ProgramsSection onOpenRegister={handleOpenRegister} />}
-        {activeView === "gallery" && <GallerySection />}
-        {activeView === "contact" && <ContactSection />}
+        {activeView === "home" && (
+          <>
+            <Hero onOpenRegister={() => handleOpenRegister()} />
+            <EventsPortalSection
+              onSelectProgram={(p) => handleOpenRegister(p)}
+              onNavigate={handleNavigate}
+            />
+            <GallerySection />
+            <ContactSection />
+            <Footer
+              onOpenRegister={() => handleOpenRegister()}
+              onNavigate={handleNavigate}
+            />
+          </>
+        )}
+        {activeView === "programs" && (
+          <>
+            <ProgramsSection onOpenRegister={handleOpenRegister} />
+            <Footer onOpenRegister={() => handleOpenRegister()} onNavigate={handleNavigate} />
+          </>
+        )}
+        {activeView === "gallery" && (
+          <>
+            <GallerySection />
+            <Footer onOpenRegister={() => handleOpenRegister()} onNavigate={handleNavigate} />
+          </>
+        )}
+        {activeView === "contact" && (
+          <>
+            <ContactSection />
+            <Footer onOpenRegister={() => handleOpenRegister()} onNavigate={handleNavigate} />
+          </>
+        )}
       </main>
-
-      {/* Distinctive Footer: Only on Inner Views (Not on Initial Home Screen) */}
-      {activeView !== "home" && (
-        <Footer
-          onOpenRegister={() => handleOpenRegister()}
-          onNavigate={handleNavigate}
-        />
-      )}
 
       {/* Central Registration Information Modal */}
       <RegistrationModal

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090B"/>
+      <stop offset="50%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#0B0D13"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#0055FF" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#002266" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#FFFFFF" fill-opacity="0.07"/>
+    </pattern>
+  </defs>
+
+  <!-- Deep Obsidian Black Background -->
+  <rect width="800" height="480" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Blueprint Dot Grid -->
+  <rect width="800" height="480" fill="url(#dotGrid)"/>
+
+  <!-- Center Ambient Radial Glow -->
+  <rect width="800" height="480" fill="url(#centerGlow)"/>
+
+  <!-- High-Tech Border Outline with Accent Corners -->
+  <rect x="20" y="20" width="760" height="440" rx="16" fill="none" stroke="#27272A" stroke-width="1.5"/>
+
+  <!-- Cyber Corner Brackets -->
+  <path d="M 20 50 L 20 20 L 50 20" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+  <path d="M 780 50 L 780 20 L 750 20" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+  <path d="M 20 430 L 20 460 L 50 460" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+  <path d="M 780 430 L 780 460 L 750 460" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+
+  <!-- Top Metadata Header -->
+  <g transform="translate(45, 52)">
+    <!-- Arena Number Badge -->
+    <rect x="0" y="0" width="134" height="32" rx="7" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+    <circle cx="18" cy="16" r="4.5" fill="#0055FF"/>
+    <text x="32" y="21" fill="#FFFFFF" font-family="'Space Grotesk', -apple-system, monospace" font-size="13" font-weight="700" letter-spacing="2">ARENA // 08</text>
+
+    <!-- Category Pill -->
+    <rect x="560" y="0" width="150" height="32" rx="7" fill="#09090B" stroke="#27272A" stroke-width="1"/>
+    <text x="635" y="21" text-anchor="middle" fill="#D4D4D8" font-family="'Space Grotesk', monospace" font-size="12" font-weight="700" letter-spacing="1.5">MEDIA &amp; ARTS</text>
+  </g>
+
+  <!-- Central Visual Glyph -->
+  <g id="icon">
+    <ellipse cx="400" cy="180" rx="30" ry="38" fill="none" stroke="#FFFFFF" stroke-width="2" />
+            <path d="M380 185 C390 195 410 195 420 185" fill="none" stroke="#0055FF" stroke-width="2" />
+            <circle cx="390" cy="172" r="3.5" fill="#FFFFFF" />
+            <circle cx="410" cy="172" r="3.5" fill="#0055FF" />
+            <path d="M400 160 L400 180" stroke="#0055FF" stroke-width="1.5" />
+  </g>
+
+  <!-- Central Title and Subtitle (High-Contrast White Typography) -->
+  <g transform="translate(400, 275)">
+    <text x="0" y="0" text-anchor="middle" fill="#FFFFFF" font-family="'Space Grotesk', system-ui, sans-serif" font-size="38" font-weight="900" letter-spacing="1">FACE PAINTING</text>
+    <text x="0" y="34" text-anchor="middle" fill="#A1A1AA" font-family="'Space Grotesk', monospace" font-size="14" font-weight="600" letter-spacing="3">LIVING CANVAS METAMORPHOSIS</text>
+    
+    <!-- Accent Line -->
+    <line x1="-120" y1="56" x2="120" y2="56" stroke="#27272A" stroke-width="1.5"/>
+    <rect x="-18" y="54" width="36" height="5" rx="2.5" fill="#0055FF"/>
+  </g>
+
+  <!-- Bottom Details Bar -->
+  <g transform="translate(45, 410)">
+    <!-- Format Tag -->
+    <text x="0" y="12" fill="#71717A" font-family="monospace" font-size="12" font-weight="600" letter-spacing="1">EVENT FORMAT</text>
+    <text x="0" y="34" fill="#FFFFFF" font-family="'Space Grotesk', monospace" font-size="16" font-weight="700" letter-spacing="1">DUO PAIR</text>
+
+    <!-- Entry Fee -->
+    <text x="355" y="12" text-anchor="middle" fill="#71717A" font-family="monospace" font-size="12" font-weight="600" letter-spacing="1">ENTRY PASS</text>
+    <text x="355" y="34" text-anchor="middle" fill="#FFFFFF" font-family="'Space Grotesk', monospace" font-size="20" font-weight="800">₹150</text>
+
+    <!-- Prize Pool -->
+    <text x="710" y="12" text-anchor="end" fill="#71717A" font-family="monospace" font-size="12" font-weight="600" letter-spacing="1">PRIZE POOL</text>
+    <text x="710" y="34" text-anchor="end" fill="#0055FF" font-family="'Space Grotesk', monospace" font-size="20" font-weight="800">₹3,000</text>
+  </g>
+</svg>

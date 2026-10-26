@@ -29,6 +29,18 @@ export function Navbar({ onOpenRegister, activeView = "home", onNavigate }) {
   }, []);
 
   const handleSelectLink = (id) => {
+    if (id === "home") {
+      if (activeView === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+    } else if (activeView === "home") {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
     if (onNavigate) {
       onNavigate(id);
     }
