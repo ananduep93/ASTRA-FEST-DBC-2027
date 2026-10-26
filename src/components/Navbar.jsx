@@ -39,14 +39,10 @@ export function Navbar({ onOpenRegister, activeView = "home", onNavigate }) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 w-full z-40 transition-all duration-500 ease-out ${
+        className={`fixed top-0 left-0 right-0 w-full z-40 py-2.5 sm:py-3 transition-opacity duration-500 ease-out ${
           isNavbarVisible
-            ? "opacity-100 pointer-events-auto translate-y-0"
-            : "opacity-0 pointer-events-none -translate-y-2"
-        } ${
-          isScrolled
-            ? "py-2.5 sm:py-3 bg-[#09090B]/90 backdrop-blur-md border-b border-[#27272A]"
-            : "py-3.5 sm:py-5 bg-transparent"
+            ? "opacity-100 pointer-events-auto bg-[#09090B]/90 backdrop-blur-md border-b border-[#27272A]"
+            : "opacity-0 pointer-events-none bg-transparent"
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

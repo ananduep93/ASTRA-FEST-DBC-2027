@@ -34,20 +34,22 @@ export function Hero() {
 
     const getDestination = () => {
       const targetSlot = document.getElementById("navbar-logo-target");
+      const isMobile = window.innerWidth < 640;
+      const baseLogoWidth = isMobile ? 128 : 176;
+
       if (!targetSlot || !logo) {
         return {
-          x: -window.innerWidth / 2 + 32,
-          y: -window.innerHeight / 2 + 32,
-          scale: 0.25,
+          x: -window.innerWidth / 2 + (isMobile ? 32 : 48),
+          y: -window.innerHeight / 2 + 28,
+          scale: 32 / baseLogoWidth,
         };
       }
       const slotRect = targetSlot.getBoundingClientRect();
-      const logoWidth = logo.offsetWidth || 128;
 
       // Exact vector from screen center to the navbar logo slot center
-      const x = (slotRect.left + slotRect.width / 2) - window.innerWidth / 2;
-      const y = (slotRect.top + slotRect.height / 2) - window.innerHeight / 2;
-      const scale = slotRect.width / logoWidth;
+      const x = slotRect.left + slotRect.width / 2 - window.innerWidth / 2;
+      const y = slotRect.top + slotRect.height / 2 - window.innerHeight / 2;
+      const scale = 32 / baseLogoWidth;
 
       return { x, y, scale };
     };
@@ -57,7 +59,7 @@ export function Hero() {
       scrollTrigger: {
         trigger: container,
         start: "top top",
-        end: "30% top",
+        end: "25% top",
         scrub: 0.5,
         invalidateOnRefresh: true,
       },
@@ -115,8 +117,8 @@ export function Hero() {
           <div className="w-full flex flex-col items-center justify-center relative z-10 overflow-visible">
             <ScrollFloat
               triggerElement={containerRef.current}
-              scrollStart="32% top"
-              scrollEnd="bottom bottom"
+              scrollStart="28% top"
+              scrollEnd="58% top"
               effect="float"
               splitBy="chars"
               direction="up"
