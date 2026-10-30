@@ -4,13 +4,12 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { EventsPortalSection } from "./components/EventsPortalSection";
 import { ProgramsSection } from "./components/ProgramsSection";
-import { GallerySection } from "./components/GallerySection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { RegistrationModal } from "./components/RegistrationModal";
 
 export default function App() {
-  const [activeView, setActiveView] = useState("home"); // "home" | "programs" | "gallery" | "contact"
+  const [activeView, setActiveView] = useState("home"); // "home" | "programs" | "contact"
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [registerTargetProgram, setRegisterTargetProgram] = useState(null);
 
@@ -59,7 +58,6 @@ export default function App() {
             </button>
             <div className="text-[11px] font-mono text-[#71717A] uppercase tracking-wider">
               {activeView === "programs" && "15 Official Arenas"}
-              {activeView === "gallery" && "Moments Archive"}
               {activeView === "contact" && "Liaison Desk"}
             </div>
           </div>
@@ -73,7 +71,6 @@ export default function App() {
               onSelectProgram={(p) => handleOpenRegister(p)}
               onNavigate={handleNavigate}
             />
-            <GallerySection />
             <ContactSection />
             <Footer
               onOpenRegister={() => handleOpenRegister()}
@@ -84,12 +81,6 @@ export default function App() {
         {activeView === "programs" && (
           <>
             <ProgramsSection onOpenRegister={handleOpenRegister} />
-            <Footer onOpenRegister={() => handleOpenRegister()} onNavigate={handleNavigate} />
-          </>
-        )}
-        {activeView === "gallery" && (
-          <>
-            <GallerySection />
             <Footer onOpenRegister={() => handleOpenRegister()} onNavigate={handleNavigate} />
           </>
         )}

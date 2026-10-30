@@ -79,7 +79,7 @@ export function Footer({ onOpenRegister, onNavigate }) {
               NAVIGATION
             </span>
             <ul className="space-y-1.5 text-xs sm:text-sm font-medium text-[#A1A1AA]">
-              {["Home", "Programs", "Gallery", "Contact"].map((item) => (
+              {["Home", "Programs", "Contact"].map((item) => (
                 <li key={item}>
                   <button
                     onClick={() => handleLinkClick(item)}

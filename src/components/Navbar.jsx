@@ -9,7 +9,6 @@ export function Navbar({ onOpenRegister, activeView = "home", onNavigate }) {
   const navLinks = [
     { name: "Home", id: "home", subtitle: "Main Festival Hub" },
     { name: "Programs", id: "programs", subtitle: "15 Official Arenas" },
-    { name: "Gallery", id: "gallery", subtitle: "Moments & Archive" },
     { name: "Contact", id: "contact", subtitle: "Helpline & Liaison" },
   ];
 
