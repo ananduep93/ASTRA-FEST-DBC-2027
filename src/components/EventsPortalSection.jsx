@@ -81,9 +81,9 @@ export function EventsPortalSection({ onSelectProgram }) {
         startRadius={28}
         endRadius={0}
         mediaZoom={1}
-        scrollDistance={1.4}
-        holdDistance={0.55}
-        smoothing={0.08}
+        scrollDistance={isMobile ? 0.45 : 1.0}
+        holdDistance={isMobile ? 0.1 : 0.35}
+        smoothing={isMobile ? 0.02 : 0.06}
         overlayScrim={0}
         useWindowScroll={true}
         className="w-full"

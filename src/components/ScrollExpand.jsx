@@ -186,7 +186,7 @@ const ScrollExpand = ({
       window.removeEventListener('resize', onResize);
       ro.disconnect();
     };
-  }, [applyProgress, useWindowScroll]);
+  }, [applyProgress, useWindowScroll, scrollDistance, holdDistance]);
 
   const media =
     mediaType === 'video' ? (
