@@ -64,18 +64,15 @@ export function Navbar({ onOpenRegister, activeView = "home", onNavigate }) {
               className="flex items-center gap-2.5 group min-w-0 shrink text-left cursor-pointer"
               aria-label="ASTRA 2K27 Home"
             >
-              {/* Target slot for the logo to land on while scrolling */}
+              {/* Navbar Logo */}
               <div
-                id="navbar-logo-target"
                 className="w-8 h-8 shrink-0 flex items-center justify-center relative"
               >
-                {activeView !== "home" && (
-                  <img
-                    src="/astra-logo.png"
-                    alt="ASTRA Emblem"
-                    className="w-8 h-8 shrink-0 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
-                  />
-                )}
+                <img
+                  src="/astra-logo.png"
+                  alt="ASTRA Emblem"
+                  className="w-8 h-8 shrink-0 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
+                />
               </div>
 
               <div className="flex flex-col min-w-0">
